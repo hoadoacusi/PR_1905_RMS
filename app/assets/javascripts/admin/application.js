@@ -1,0 +1,9 @@
+//= require rails-ujs
+//= require activestorage
+//= require jquery
+//= require popper
+//= require bootstrap-sprockets
+//= require ./lib/pace
+//= require ./lib/perfect-scrollbar
+//= require ./lib/coreui
+//= require ./lib/main
