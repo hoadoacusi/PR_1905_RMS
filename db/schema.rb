@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_30_122147) do
+ActiveRecord::Schema.define(version: 2019_10_31_121544) do
 
   create_table "bill_details", force: :cascade do |t|
     t.decimal "price"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2019_10_30_122147) do
     t.string "password_digest"
     t.string "phone"
     t.string "remember_digest"
+    t.boolean "admin", default: false
   end
 
   create_table "utilities", force: :cascade do |t|

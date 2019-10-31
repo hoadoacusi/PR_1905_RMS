@@ -1,10 +1,10 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
-  has_many :reservations
+  has_many :reservations, foreign_key: "reservation_id", dependent: :destroy
   has_many :bill_details
   has_many :dish_details, through: :bill_details
 
-   has_many :microposts, dependent: :destroy
+  has_many :microposts, dependent: :destroy
   #attr_accessor :remember_token
   before_save { self.email = email.downcase }
   validates :name,  presence: true, length: { maximum: 50 }
@@ -40,6 +40,7 @@ class User < ApplicationRecord
 
   # Returns true if the given token matches the digest.
   def authenticated?(remember_token)
+    return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
